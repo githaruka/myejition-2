@@ -1,0 +1,32 @@
+<%= render "shared/second-header"%>
+<div class="dictionaries-new-page">
+  <div class="dictionary-main">
+    <h2 class="dictionary-title">語句を追加しよう！</h2>
+    <%= form_with model: @content, url: dictionary_contents_path, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <div class="new-dictionaries">
+      <div class="weight-bold-text">
+        追加したい語句
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :phrase, class:"dictionaries-text", id:"content-phrase", placeholder:"辞書に追加したい語句（必須 40文字まで)", maxlength:"40" %>
+      <div class="weight-bold-text">
+        辞書内容の説明
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :content_mean, class:"dictionaries-text", id:"content-mean", placeholder:"意味・説明（必須 1,000文字まで）", rows: "7", cols: "75", maxlength:"1000" %>
+      <div class="weight-bold-text">
+        参照したサイトURl、参考書、その他メモ等
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :phrase_reference, class:"dictionaries-text", id:"content-phrase-reference", placeholder:"内容の説明（必須 1,000文字まで）", rows: "7", cols: "75", maxlength:"1000" %>
+    </div>
+    <div class="dictionary-edit-btn">
+      <% if current_user == @dictionary.user %>
+        <%= f.submit "追加する" , class:"content-edit-btn" %>
+      <% end %>
+      <%= link_to " 戻る ", dictionary_path(@dictionary), class:"back--btn" %>
+    </div>
+    <% end %>
+  </div>
+</div>

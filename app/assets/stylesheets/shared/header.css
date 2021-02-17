@@ -1,0 +1,88 @@
+a {
+  box-sizing: border-box;
+}
+
+header {
+  padding: 30px 4% 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15vh;
+  background-color: #FAF0E6;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.header-title {
+  width: 300px;
+
+}
+
+.header-title-text {
+  width: 80%;
+  position: relative;
+  padding: 1rem 2rem calc(1rem + 10px);
+  background: #fff100;
+  font-size: 30px;
+  text-decoration: none;
+  color: #4b4b4b;
+  align-items: center;
+}
+
+.header-title-text:before {
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  width: 100%;
+  height: 100%;
+  content: '';
+  border: 4px solid #000;
+}
+
+.top-page-header {
+  width: 60vw;
+  padding: 2vh 15vw;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.lists-right {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+  margin: 0 0 0 15px;
+  font-size: 20px;
+  margin: 0 0 0 15px;
+}
+
+
+.user-nickname {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+
+.logout {
+  text-decoration: none;
+  color: #333333;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: #333333;
+}
+

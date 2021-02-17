@@ -1,0 +1,38 @@
+<%= render "shared/second-header"%>
+<div class="dictionaries-new-page">
+  <div class="dictionary-main">
+    <h2 class="dictionary-title"><%= "#{@user.nickname}" %>さんのマイページ</h2>
+  </div>
+  <ul class='dictionary-lists'>
+      <% if @dictionaries.present? %>
+        <% @dictionaries.each do |dictionary| %> 
+          <li class='list'>
+            <%= link_to "#{dictionary.name}", dictionary_path(dictionary) %>
+            <div class='dictionary-category'>
+                <span><%= dictionary.category.category %></span>
+                <div class='heart-btn'>
+                  <%= image_tag "heart.png", class:"heart-icon" %>
+                  <span class='heart-count'>0</span>
+                </div>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+  </ul>
+  <h2 class="good-title">いいねしている辞書</h2>
+    <ul class="dictionary-good-lists">
+      <% @user.liked_dictionaries.each do |dictionary| %>
+        <li class="good-list">
+          <%= link_to "#{dictionary.name}", dictionary_path(dictionary) %>
+          <div class='dictionary-category'>
+                <span><%= dictionary.category.category %></span>
+                <div class='heart-btn'>
+                  <%= image_tag "heart.png", class:"heart-icon" %>
+                  <span class='heart-count'>0</span>
+                </div>
+            </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<%= render "shared/second-header"%>
+
+<div class="dictionary-show-page">
+  <div class="dictionary-show">
+    <h2 class="show-name">
+      <%= @dictionary.name %>
+    </h2>
+    <h3>
+      <%= @dictionary.info %>
+    </h3>
+    <div class="contents-list-main">
+      <ul class="contents-list">
+        <% if @dictionary.contents.present? %>
+          <% @dictionary.contents.each do |content| %> 
+            <li class='contents-list-text'>
+              <%= link_to dictionary_content_path(@dictionary, content) do %>
+                <%= content.phrase %>
+              <% end %>
+              <p><%= content.content_mean %></p>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div> 
+    <%#= search_form_for @search do |f| %>
+      <%#= f.search_field :@content.phrase_cont %>
+      <%#= f.submit "検索" %>
+    <%# end %>
+    <h2 class="good-count">
+      いいねしたユーザー数 <%= image_tag "heart.png", class:"heart-icon" %><%= @dictionary.likes.count %>
+    </h2>
+    <div class="dictionary-show-btn">
+      <% if current_user == @dictionary.user %>
+        <%= link_to " 辞書の編集 ", edit_dictionary_path(@dictionary), class:"dictionary--btn" %>
+        <%= link_to " 語句の追加 ", new_dictionary_content_path(@dictionary.id), class:"content-edit-btn" %>
+        <%= link_to "　削除　", dictionary_path(@dictionary), method: :delete, class:"destroy-btn" %>
+        <% if @dictionary.likes.count >= 1 %>
+          <%= link_to "出版する", "#", class:"edition-btn" %>
+        <% end %>
+        <%= link_to " 戻る ", user_path(@dictionary), class:"back--btn" %>
+      <% else %>
+        <div class="login-show-btn">
+          <% if user_signed_in? %>
+            <% if current_user.liked_by?(@dictionary) %>
+              <%= button_to "いいねを取消す", dictionary_like_path(@dictionary.id, @like.id), method: :delete, class:"good-btn" %>
+            <% else %>
+              <%= button_to "いいね", dictionary_likes_path(@dictionary.id), class:"good-btn" %>
+            <% end %>
+          <% end %>
+          <%= link_to " 戻る ", dictionary_path(@dictionary), class:"back--btn" %>
+        </div> 
+      <% end %>
+    </div>
+  </div>
+</div>

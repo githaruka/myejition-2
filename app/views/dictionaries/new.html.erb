@@ -1,0 +1,35 @@
+<%= render "shared/second-header"%>
+<div class="dictionaries-new-page">
+  <div class="dictionary-main">
+    <h2 class="dictionary-title">新しく辞書を作成しよう！</h2>
+    <%= form_with model: @dictionary, url: dictionaries_path, local: true do |f| %>
+    
+    <%= render 'shared/error_messages', model: f.object %>
+    
+    <div class="new-dictionaries">
+      <div class="weight-bold-text">
+        辞書の名前・タイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"dictionaries-text", id:"dictionary-name", placeholder:"辞書のタイトル名（必須 40文字まで)", maxlength:"40" %>
+      <div class="weight-bold-text">
+        辞書内容の説明
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :info, class:"dictionaries-text", id:"dictionary-info", placeholder:"内容の説明（必須 1,000文字まで）（学科、試験名、資格名、用途）例）2021年ITスキル検定1級受験用に作成しました。追記要望や内容相違点についてお気づきの点がありましたら、是非コメントをお願いいたします。", rows: "7", cols: "75", maxlength:"1000" %>
+    </div>
+    <div class="dictionaries-detail">
+        <div class="form">
+          <div class="weight-bold-text">
+            カテゴリー
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:category_id, Category.all, :id, :category, {}, {class:"select-box", id:"dictionary-category"}) %>
+        </div>
+    </div>
+    <div class="dictionary-btn-contents">
+      <%= f.submit "新規作成" ,class:"dictionary--btn" %>
+    </div>
+    <% end %>
+  </div>
+</div>
