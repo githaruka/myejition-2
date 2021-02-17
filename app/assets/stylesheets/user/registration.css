@@ -1,12 +1,10 @@
 .registration-main {
-  background: #FAF0E6;
   width: 100vw;
   padding: 15vh;
 }
 
 .form-wrap {
   width: 50%;
-  background-color: #FAF0E6;
   padding: 10vh 0;
   position: relative;
 }
