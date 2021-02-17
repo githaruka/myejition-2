@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "dictionaries#index"
   resources :dictionaries do
-    resources :contents, only: [:new, :create, :show, :update, :destroy]
+    resources :contents, only: [:new, :create, :show, :edit, :update, :destroy]
     resources :likes, only: [:create, :destroy]
   end
   resources :users, only: :show

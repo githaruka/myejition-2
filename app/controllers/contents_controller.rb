@@ -16,8 +16,8 @@ class ContentsController < ApplicationController
   end
 
   def show
-    @dictionary = Dictionary.find(params[:dictionary_id])
     @content = Content.find(params[:id])
+    @dictionary = @content.dictionary
     #@search = Content.ransack(params[:q])
     #@contents = @search.result
   end
@@ -35,7 +35,7 @@ class ContentsController < ApplicationController
     @dictionary = Dictionary.find(params[:dictionary_id])
     @content = Content.find(params[:id])
     if @content.update(content_params)
-      redirect_to dictionary_content_path(@content)
+      redirect_to dictionary_content_path(@dictionary, @content)
     else
       rencer :edit
     end

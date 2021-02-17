@@ -17,7 +17,7 @@
   </div>
   <div class="dictionary-edit-btn">
     <% if current_user.id == @dictionary.user_id %>
-      <%= link_to " 編集する ", edit_dictionary_content_path(@dictionary, @content), class:"content-edit-btn" %>
+      <%= link_to " 編集する ", edit_dictionary_content_path(@dictionary.id, @content), class:"content-edit-btn" %>
       <%= link_to " 削除する ", dictionary_content_path(@dictionary, @content), method: :delete, class:"destroy-btn" %>
     <% end %>
     <%= link_to " 戻る ", user_path(@dictionary.user_id), class:"back--btn" %>
