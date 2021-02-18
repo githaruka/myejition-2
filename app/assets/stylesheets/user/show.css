@@ -42,11 +42,11 @@
 }
 
 .dictionary-good-lists>.good-list {
-  width: 30vh;
+  width: 20vh;
   padding: 1vw;
   background: #FFC0CB;
-  border: solid 5px #111111;
-  margin: auto;
+  border: solid 5px #DEB887;
+  margin: 10px;
   color: #111111;
   border-radius: 5px;
 }
