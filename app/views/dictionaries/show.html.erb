@@ -4,6 +4,7 @@
   <div class="dictionary-show">
     <h2 class="show-name">
       <%= @dictionary.name %>
+      「　作成者：　<%= link_to @dictionary.user.nickname, user_path(@dictionary.user.id) %>　」
     </h2>
     <h3>
       <%= @dictionary.info %>
@@ -26,6 +27,7 @@
       <%#= f.search_field :@content.phrase_cont %>
       <%#= f.submit "検索" %>
     <%# end %>
+
     <h2 class="good-count">
       いいねしたユーザー数 <%= image_tag "heart.png", class:"heart-icon" %><%= @dictionary.likes.count %>
     </h2>
