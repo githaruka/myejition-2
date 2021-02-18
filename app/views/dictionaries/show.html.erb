@@ -49,7 +49,9 @@
               <%= button_to "いいね", dictionary_likes_path(@dictionary.id), class:"good-btn" %>
             <% end %>
           <% end %>
-          <%= link_to " 戻る ", dictionary_path(@dictionary), class:"back--btn" %>
+          <%= link_to :back do %>
+          <button class="back--btn">戻る</button>
+          <% end %>
         </div> 
       <% end %>
     </div>
