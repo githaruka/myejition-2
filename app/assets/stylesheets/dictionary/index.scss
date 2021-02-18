@@ -2,15 +2,12 @@
 body {
   font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
   background: #FAEBD7;
+  width: 100vw;
+  height: 100vh;
 }
 
 .main {
-  width: 100%;
   padding: 15vh;
-}
-
-.main-image {
-  width: 100vw;
 }
 
 .main-pict {
@@ -19,7 +16,7 @@ body {
 }
 
 .title-contents {
-  width: 100vw;
+  width: 100%;
   padding: 50px 0 0;
   color:  #555555;
   

@@ -9,7 +9,7 @@ class Dictionary < ApplicationRecord
 
   with_options presence: true do
     validates :name, length: { maximum: 40 }
-    validates :info, length: { maximum: 100 }
+    validates :info, length: { maximum: 500 }
   end
 
   validates :category_id, numericality: { other_than: 1 } 

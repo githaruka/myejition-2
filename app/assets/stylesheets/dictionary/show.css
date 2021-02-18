@@ -1,14 +1,15 @@
 .dictionary-show-page {
-  width: 100%;
+  width: 90%;
   height: 100vh;
   color: #555555;
   padding: 15vh;
   margin-top: 5vw;
 }
 
-.dictionary-show--btn {
-  display:flex;
+.dictionary-show-btn {
+  padding-bottom: 15px;
 }
+
 .dictionary--btn {
   display: inline-block;
   text-decoration: none;
