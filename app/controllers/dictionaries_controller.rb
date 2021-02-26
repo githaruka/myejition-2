@@ -1,10 +1,12 @@
 class DictionariesController < ApplicationController
-  before_action :dictionary_substitution, except: [:index, :new, :create]
+  before_action :dictionary_substitution, except: [:index, :new, :create, :search]
 
   def index
-    @dictionaries = Dictionary.order("created_at DESC").includes(:user)
-    #@dictionary = Dictionary.find(params[:id])
-    #@likes_count = Like.where(dictionary_id: @dictionary.id).count
+    @search = Dictionary.ransack(params[:q])
+    @dictionaries = @search.result
+    #category_id = params[:q][:category_id_eq]
+    #@category = Category.find_by(id: category_id)
+
   end
 
   def new
@@ -21,24 +23,20 @@ class DictionariesController < ApplicationController
   end
 
   def show
-    #@dictionary = Dictionary.find(params[:id])
     @contents = @dictionary.contents
     @likes = Like.where(dictionary_id: @dictionary.id)
     if user_signed_in?
       @like = Like.find_by(user_id: current_user.id, dictionary_id: @dictionary.id)
     end
-    #@contents = Content.order("phrase ASC").includes(:dictionary)
   end
 
   def edit
-    #@dictionary = Dictionary.find(params[:id])
     if current_user.id != @dictionary.user_id
       redirect_to root_path
     end
   end
 
   def update
-    #@dictionary = Dictionary.find(params[:id])
     if @dictionary.update(dictionary_params)
       redirect_to dictionary_path(@dictionary)
     else
@@ -47,7 +45,6 @@ class DictionariesController < ApplicationController
   end
 
   def destroy
-    #@dictionary = Dictionary.find(params[:id])
     @contents = @dictionary.contents
     if current_user.id == @dictionary.user_id
       @contents.destroy
@@ -56,6 +53,10 @@ class DictionariesController < ApplicationController
     else
       redirect_to dictionary_path(@dictionary)
     end
+  end
+
+  def search
+    @dictionaries = @q.result(distinct: true)
   end
 
   private
@@ -67,4 +68,5 @@ class DictionariesController < ApplicationController
   def dictionary_substitution
     @dictionary = Dictionary.find(params[:id])
   end
+
 end

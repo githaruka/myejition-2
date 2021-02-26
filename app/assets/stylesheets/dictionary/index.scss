@@ -55,15 +55,6 @@ body {
 
 }
 
-.dictionary-contents>.subtitle {
-  font-size: 5vh;
-  margin: 1vh 0;
-  text-decoration: none;
-  color:#FF1493;
-  font-weight: bold;
-
-}
-
 .dictionary-lists {
   width: 100vw;
   display: flex;
@@ -132,4 +123,22 @@ body {
   transform: translateY(2px);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
   border-bottom: none;
+}
+
+/*カテゴリー検索
+.search_category {
+  display: flex;
+}
+
+.search_category>.label {
+  margin-bottom: 0;
+}
+
+.search-select-box {
+  width: 150px;
+  margin-top: 10px;
+}
+
+.dictionary-search-btn {
+
 }

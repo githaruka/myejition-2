@@ -17,7 +17,16 @@
   </div>
   <div class='dictionary-contents'>
     <h2 class='title'>投稿辞書一覧</h2>
-    <%= link_to 'NEW', new_dictionary_path, class: "subtitle" %>
+    <%#辞書検索%>
+    <%= search_form_for @search do |f| %>
+      <%= f.label :name_cont, "辞書の名前" %>
+      <%= f.search_field :name_cont %>
+      <%#div class="search_category" >
+        <%= f.label "カテゴリー" %>        
+        <%#= f.collection_select(:category_id_eq, Category.all, :id, :category, {}, {class:"search-select-box", id:"dictionary-category"}) %>
+      <%#/div#%>
+      <%= f.submit class:"dictionary-search-btn" %>
+    <% end %>
     <ul class='dictionary-lists'>
       <% if @dictionaries.present? %>
         <% @dictionaries.each do |dictionary| %> 

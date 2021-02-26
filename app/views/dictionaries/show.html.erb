@@ -9,6 +9,11 @@
     <h3>
       <%= @dictionary.info %>
     </h3>
+  <%#語句検索#%>
+    <%#= search_form_for @search do |f| %>
+      <%#= f.search_field :@content.phrase_cont %>
+      <%#= f.submit "検索" %>
+    <%# end %>
     <div class="contents-list-main">
       <ul class="contents-list">
         <% if @dictionary.contents.present? %>
@@ -23,10 +28,7 @@
         <% end %>
       </ul>
     </div> 
-    <%#= search_form_for @search do |f| %>
-      <%#= f.search_field :@content.phrase_cont %>
-      <%#= f.submit "検索" %>
-    <%# end %>
+    
 
     <h2 class="good-count">
       いいねしたユーザー数 <%= image_tag "heart.png", class:"heart-icon" %><%= @dictionary.likes.count %>
