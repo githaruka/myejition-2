@@ -5,7 +5,7 @@ My Ejition
 自分好みの辞書を作成できる。
 いいね機能があり、マイページにていいねをした他ユーザーが作成した辞書の一覧を見ることができる。
 
-## UEL
+## URL
 https://myejition-2.herokuapp.com/
 
 ## ID/パスワード
