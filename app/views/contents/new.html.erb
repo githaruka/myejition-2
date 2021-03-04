@@ -25,7 +25,8 @@
       <% if current_user == @dictionary.user %>
         <%= f.submit "追加する" , class:"content-edit-btn" %>
       <% end %>
-      <%= link_to " 戻る ", dictionary_path(@dictionary), class:"back--btn" %>
+      <%= button_to "戻る", dictionary_path(@dictionary), class: "back--btn" %>
+      <%#= link_to " 戻る ", dictionary_path(@dictionary), class:"content-back--btn" %>
     </div>
     <% end %>
   </div>

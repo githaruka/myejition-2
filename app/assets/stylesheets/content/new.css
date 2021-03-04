@@ -2,3 +2,27 @@
   height: 120px;
   display: flex;
 }
+
+
+.content-back--btn {
+  display: inline-block;
+  text-decoration: none;
+  background: #66CCFF	;
+  color: #3366FF;
+  font-weight: bold;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 5px #66CCFF	;
+  border: solid 2px rgba(255, 255, 255, 0.47);
+  transition: .4s;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.content-back--btn:hover {
+  border-style: dashed;
+}
